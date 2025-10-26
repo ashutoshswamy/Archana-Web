@@ -804,10 +804,6 @@ export default function Home() {
               </ul>
             </div>
           </div>
-
-          <div className="border-t border-gray-800 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-gray-500">
-            <p>© 2025 Archana Phaltankar. All rights reserved.</p>
-          </div>
         </div>
       </footer>
 
