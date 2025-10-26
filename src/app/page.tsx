@@ -32,10 +32,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2ba4d8] to-[#1e7fa8] flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-lg">AP</span>
-              </div>
-              <div className="hidden sm:block">
+              <div>
                 <div className="font-bold text-gray-800 text-base sm:text-lg">
                   Archana Phaltankar
                 </div>
@@ -71,6 +68,13 @@ export default function Home() {
                 className="hover:text-[#2ba4d8] transition-colors relative group"
               >
                 Partners
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ba4d8] group-hover:w-full transition-all"></span>
+              </a>
+              <a
+                href="#testimonials"
+                className="hover:text-[#2ba4d8] transition-colors relative group"
+              >
+                Testimonials
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ba4d8] group-hover:w-full transition-all"></span>
               </a>
               <a
@@ -141,6 +145,14 @@ export default function Home() {
                 >
                   <ChevronRight className="w-4 h-4" />
                   Partners
+                </a>
+                <a
+                  href="#testimonials"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-gray-600 hover:text-[#2ba4d8] transition-colors font-medium flex items-center gap-2"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                  Testimonials
                 </a>
                 <a
                   href="#contact"
@@ -621,7 +633,7 @@ export default function Home() {
                 />
               </div>
               <p className="text-xs sm:text-sm text-gray-600 font-medium mt-2">
-                Nirbhay Vaade
+                Nibhay Vaade
               </p>
               <p className="text-xs text-gray-500 mt-1 hidden sm:block">
                 General Insurance
@@ -664,6 +676,172 @@ export default function Home() {
               <p className="text-xs text-gray-500 mt-1 hidden sm:block">
                 Banking Partner
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-16 sm:py-20 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-block bg-blue-50 px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold text-[#2ba4d8] mb-4">
+              Client Stories
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+              Real experiences from families we&apos;ve helped secure their
+              financial future
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {/* Testimonial 1 - Mr. Anil G Patil */}
+            <div className="group bg-gradient-to-br from-blue-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <div className="mb-4 sm:mb-6">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                  Mr. Anil G Patil
+                </h3>
+                <p className="text-sm sm:text-base text-[#2ba4d8] font-medium">
+                  Retired Police Officer
+                </p>
+              </div>
+              <div className="relative">
+                <div className="absolute -top-2 -left-2 text-6xl text-[#2ba4d8]/20 font-serif">
+                  &ldquo;
+                </div>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed relative z-10 pl-6">
+                  Thank you very much for your service. Appreciate solutions
+                  suggested with the help of appropriate product and services.
+                </p>
+              </div>
+              <div className="flex gap-1 mt-4 sm:mt-6">
+                {[...Array(5)].map((_, i) => (
+                  <Award
+                    key={i}
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-yellow-400"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Testimonial 2 - Adv. Raviraj Kulkarni */}
+            <div className="group bg-gradient-to-br from-cyan-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <div className="mb-4 sm:mb-6">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                  Adv. Raviraj Kulkarni
+                </h3>
+                <p className="text-sm sm:text-base text-[#2ba4d8] font-medium">
+                  Advocate
+                </p>
+              </div>
+              <div className="relative">
+                <div className="absolute -top-2 -left-2 text-6xl text-[#2ba4d8]/20 font-serif">
+                  &ldquo;
+                </div>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed relative z-10 pl-6">
+                  I appreciate your suggestions and assistance in obtaining
+                  insurance and after sales service.
+                </p>
+              </div>
+              <div className="flex gap-1 mt-4 sm:mt-6">
+                {[...Array(5)].map((_, i) => (
+                  <Award
+                    key={i}
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-yellow-400"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Testimonial 3 - Mrs. Pratibha Swamy */}
+            <div className="group bg-gradient-to-br from-purple-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <div className="mb-4 sm:mb-6">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                  Mrs. Pratibha Swamy
+                </h3>
+                <p className="text-sm sm:text-base text-[#2ba4d8] font-medium">
+                  Valued Client
+                </p>
+              </div>
+              <div className="relative">
+                <div className="absolute -top-2 -left-2 text-6xl text-[#2ba4d8]/20 font-serif">
+                  &ldquo;
+                </div>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed relative z-10 pl-6">
+                  Highly satisfied with the service and support. The advice
+                  provided was practical and well-suited to my needs. I truly
+                  value the after-sales assistance and care.
+                </p>
+              </div>
+              <div className="flex gap-1 mt-4 sm:mt-6">
+                {[...Array(5)].map((_, i) => (
+                  <Award
+                    key={i}
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-yellow-400"
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Testimonial 4 - Dr. Vishwanath Swamy */}
+            <div className="group bg-gradient-to-br from-emerald-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
+              <div className="mb-4 sm:mb-6">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                  Dr. Vishwanath Swamy
+                </h3>
+                <p className="text-sm sm:text-base text-[#2ba4d8] font-medium">
+                  Scientist
+                </p>
+              </div>
+              <div className="relative">
+                <div className="absolute -top-2 -left-2 text-6xl text-[#2ba4d8]/20 font-serif">
+                  &ldquo;
+                </div>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed relative z-10 pl-6">
+                  Impressed by the professionalism and clarity in communication.
+                  The solutions provided were insightful and perfectly matched
+                  my requirements. Excellent service and follow-up support.
+                </p>
+              </div>
+              <div className="flex gap-1 mt-4 sm:mt-6">
+                {[...Array(5)].map((_, i) => (
+                  <Award
+                    key={i}
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-yellow-400"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+            <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-white rounded-xl border border-gray-100">
+              <div className="text-2xl sm:text-3xl font-bold text-[#2ba4d8] mb-1">
+                1000+
+              </div>
+              <div className="text-xs sm:text-sm text-gray-600">
+                Happy Clients
+              </div>
+            </div>
+            <div className="text-center p-4 bg-gradient-to-br from-cyan-50 to-white rounded-xl border border-gray-100">
+              <div className="text-2xl sm:text-3xl font-bold text-[#2ba4d8] mb-1">
+                26+
+              </div>
+              <div className="text-xs sm:text-sm text-gray-600">
+                Years Experience
+              </div>
+            </div>
+            <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-white rounded-xl border border-gray-100 sm:col-span-1 col-span-2">
+              <div className="text-2xl sm:text-3xl font-bold text-[#2ba4d8] mb-1">
+                100%
+              </div>
+              <div className="text-xs sm:text-sm text-gray-600">
+                Client Satisfaction
+              </div>
             </div>
           </div>
         </div>
@@ -731,19 +909,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
             <div className="sm:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#2ba4d8] to-[#1e7fa8] flex items-center justify-center">
-                  <span className="text-white font-bold text-lg sm:text-xl">
-                    AP
-                  </span>
+              <div className="mb-4">
+                <div className="font-bold text-lg sm:text-xl">
+                  Archana Phaltankar
                 </div>
-                <div>
-                  <div className="font-bold text-lg sm:text-xl">
-                    Archana Phaltankar
-                  </div>
-                  <div className="text-xs sm:text-sm text-gray-400">
-                    Because Life Matters
-                  </div>
+                <div className="text-xs sm:text-sm text-gray-400">
+                  Because Life Matters
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-gray-400 mb-4">
@@ -779,6 +950,14 @@ export default function Home() {
                     className="hover:text-white transition-colors"
                   >
                     Portfolio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#testimonials"
+                    className="hover:text-white transition-colors"
+                  >
+                    Testimonials
                   </a>
                 </li>
                 <li>
