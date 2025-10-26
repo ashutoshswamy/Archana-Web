@@ -686,7 +686,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
             <div className="bg-white/10 backdrop-blur-sm p-5 sm:p-6 rounded-2xl hover:bg-white/20 transition-all group">
               <Phone className="w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-4" />
               <h4 className="text-base sm:text-lg font-bold mb-2">Phone</h4>
@@ -706,19 +706,6 @@ export default function Home() {
                 className="text-xs sm:text-sm text-white/90 group-hover:text-white font-medium break-words"
               >
                 archu.phaltankar@gmail.com
-              </a>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm p-5 sm:p-6 rounded-2xl hover:bg-white/20 transition-all group">
-              <Globe className="w-8 h-8 sm:w-10 sm:h-10 mb-3 sm:mb-4" />
-              <h4 className="text-base sm:text-lg font-bold mb-2">Website</h4>
-              <a
-                href="http://www.becozlifematters.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs sm:text-sm text-white/90 group-hover:text-white font-medium hover:underline"
-              >
-                becozlifematters.com
               </a>
             </div>
 
@@ -763,14 +750,6 @@ export default function Home() {
                 Your trusted partner for insurance and financial planning with
                 26 years of excellence in securing families and creating wealth.
               </p>
-              <a
-                href="http://www.becozlifematters.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs sm:text-sm text-[#2ba4d8] hover:text-[#4ba8d8] transition-colors font-medium"
-              >
-                www.becozlifematters.com
-              </a>
             </div>
 
             <div>
