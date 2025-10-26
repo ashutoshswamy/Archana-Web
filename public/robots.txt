@@ -1,0 +1,22 @@
+# Robots.txt for becozlifematters.in
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://becozlifematters.in/sitemap.xml
+
+# Disallow crawling of admin or API routes (if any)
+Disallow: /api/
+Disallow: /_next/
+
+# Allow crawling of images and static assets
+Allow: /public/
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Crawl-delay (optional, adjust as needed)
+Crawl-delay: 1
