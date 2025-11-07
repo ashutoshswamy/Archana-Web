@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   Phone,
   Mail,
@@ -55,19 +56,26 @@ export default function Home() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ba4d8] group-hover:w-full transition-all"></span>
                 </a>
                 <a
+                  href="#about"
+                  className="hover:text-[#2ba4d8] transition-colors relative group"
+                >
+                  About
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ba4d8] group-hover:w-full transition-all"></span>
+                </a>
+                <a
                   href="#services"
                   className="hover:text-[#2ba4d8] transition-colors relative group"
                 >
                   Services
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ba4d8] group-hover:w-full transition-all"></span>
                 </a>
-                <a
-                  href="#allocation"
+                <Link
+                  href="/investments"
                   className="hover:text-[#2ba4d8] transition-colors relative group"
                 >
-                  Portfolio
+                  Investments
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#2ba4d8] group-hover:w-full transition-all"></span>
-                </a>
+                </Link>
                 <a
                   href="#partners"
                   className="hover:text-[#2ba4d8] transition-colors relative group"
@@ -128,6 +136,14 @@ export default function Home() {
                     Home
                   </a>
                   <a
+                    href="#about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-gray-600 hover:text-[#2ba4d8] transition-colors font-medium flex items-center gap-2"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                    About
+                  </a>
+                  <a
                     href="#services"
                     onClick={() => setMobileMenuOpen(false)}
                     className="text-gray-600 hover:text-[#2ba4d8] transition-colors font-medium flex items-center gap-2"
@@ -135,14 +151,14 @@ export default function Home() {
                     <ChevronRight className="w-4 h-4" />
                     Services
                   </a>
-                  <a
-                    href="#allocation"
+                  <Link
+                    href="/investments"
                     onClick={() => setMobileMenuOpen(false)}
                     className="text-gray-600 hover:text-[#2ba4d8] transition-colors font-medium flex items-center gap-2"
                   >
                     <ChevronRight className="w-4 h-4" />
-                    Portfolio
-                  </a>
+                    Investments
+                  </Link>
                   <a
                     href="#partners"
                     onClick={() => setMobileMenuOpen(false)}
@@ -201,7 +217,7 @@ export default function Home() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2ba4d8] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2ba4d8]"></span>
                   </span>
-                  26 Years of Excellence
+                  28 Years of Excellence
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
@@ -235,7 +251,7 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 max-w-2xl mx-auto">
                   <div className="text-center">
                     <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2ba4d8]">
-                      26+
+                      28+
                     </div>
                     <div className="text-xs sm:text-sm text-gray-600 mt-1">
                       Years Experience
@@ -257,6 +273,110 @@ export default function Home() {
                       Satisfaction
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section with Owner's Image */}
+        <section id="about" className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Image Column */}
+              <div className="order-2 lg:order-1">
+                <div className="relative">
+                  {/* Decorative Elements */}
+                  <div className="absolute -top-4 -left-4 w-24 h-24 bg-[#2ba4d8]/10 rounded-full blur-2xl"></div>
+                  <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl"></div>
+                  
+                  {/* Image Container - Circular */}
+                  <div className="relative rounded-full overflow-hidden shadow-2xl aspect-square max-w-md mx-auto">
+                    <Image
+                      src="/archana-updated.png"
+                      alt="Archana Phaltankar - Experienced Financial Planner with 28 years of expertise"
+                      width={600}
+                      height={600}
+                      className="object-cover w-full h-full"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Column */}
+              <div className="order-1 lg:order-2 space-y-6">
+                <div className="inline-block bg-blue-50 px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold text-[#2ba4d8] mb-2">
+                  About Me
+                </div>
+                
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                  Your Trusted
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2ba4d8] to-[#1e7fa8]">
+                    Financial Partner
+                  </span>
+                </h2>
+
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                  Hello! I'm <strong>Archana Phaltankar</strong>, a dedicated financial planner with over 28 years of experience helping families and individuals secure their financial future.
+                </p>
+
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                  My mission is to protect families from life's uncertainties through comprehensive insurance solutions and create lasting wealth through strategic financial planning.
+                </p>
+
+                {/* Key Highlights */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Check className="w-5 h-5 text-[#2ba4d8]" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">28+ Years Experience</h4>
+                      <p className="text-sm text-gray-600">Trusted financial advisor</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Check className="w-5 h-5 text-[#2ba4d8]" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">1000+ Happy Clients</h4>
+                      <p className="text-sm text-gray-600">Families secured</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Check className="w-5 h-5 text-[#2ba4d8]" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Certified Expert</h4>
+                      <p className="text-sm text-gray-600">Insurance & investments</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Check className="w-5 h-5 text-[#2ba4d8]" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Personalized Service</h4>
+                      <p className="text-sm text-gray-600">Tailored solutions</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <div className="pt-4">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2ba4d8] to-[#1e7fa8] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  >
+                    Let's Connect
+                    <ChevronRight className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -335,60 +455,6 @@ export default function Home() {
                 </ul>
               </div>
 
-              {/* Mutual Funds */}
-              <div className="group bg-gradient-to-br from-purple-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-                  Mutual Funds
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                  Strategic investment solutions for long-term wealth creation
-                </p>
-                <ul className="space-y-2 sm:space-y-3">
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
-                    <span>SIP & Portfolio Management</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
-                    <span>Wealth Creation Strategies</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
-                    <span>Goal-Based Investing</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Deposits */}
-              <div className="group bg-gradient-to-br from-amber-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <PiggyBank className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-                  Deposits
-                </h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                  Secure savings options for short and medium-term goals
-                </p>
-                <ul className="space-y-2 sm:space-y-3">
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
-                    <span>Fixed Deposits</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
-                    <span>Recurring Deposits</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
-                    <span>Guaranteed Returns</span>
-                  </li>
-                </ul>
-              </div>
-
               {/* LIC Agency */}
               <div className="group bg-gradient-to-br from-cyan-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
@@ -415,178 +481,25 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
+            </div>
 
-              {/* Advisory */}
-              <div className="group bg-gradient-to-br from-rose-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <Target className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-                  Financial Advisory
+            {/* CTA to Investments Page */}
+            <div className="mt-12 sm:mt-16 text-center">
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 sm:p-12 border border-gray-100">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                  Looking for Investment Solutions?
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                  Expert guidance for comprehensive financial planning
+                <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+                  Explore our comprehensive investment services including mutual funds,
+                  financial advisory, and smart asset allocation strategies.
                 </p>
-                <ul className="space-y-2 sm:space-y-3">
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0" />
-                    <span>Goal-Based Planning</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0" />
-                    <span>Risk Assessment</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0" />
-                    <span>Personalized Solutions</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Modern Asset Allocation Section */}
-        <section
-          id="allocation"
-          className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-gray-50 to-white"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="text-center mb-12 sm:mb-16">
-              <div className="inline-block bg-blue-50 px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold text-[#2ba4d8] mb-4">
-                Portfolio Management
-              </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                Smart Asset Allocation
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-                Choose the investment strategy that aligns with your risk
-                appetite and financial goals
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {/* Safe Portfolio */}
-              <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-green-400">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <Shield className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  Safe Portfolio
-                </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-green-400 to-transparent mb-4 sm:mb-6"></div>
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700">
-                      5-6% Guaranteed Returns
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700">
-                      Tax Free Returns
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700 font-semibold">
-                      100% Capital Protection
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-6 sm:mt-8">
-                  <span className="text-xs sm:text-sm text-gray-500">
-                    Risk Level:
-                  </span>
-                  <div className="mt-2 flex gap-1">
-                    <div className="h-2 w-full bg-green-400 rounded"></div>
-                    <div className="h-2 w-full bg-gray-200 rounded"></div>
-                    <div className="h-2 w-full bg-gray-200 rounded"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Medium Risk Portfolio */}
-              <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#2ba4d8]">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[#2ba4d8] to-[#1e7fa8] rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <BarChart3 className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  Medium Risk
-                </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-[#2ba4d8] to-transparent mb-4 sm:mb-6"></div>
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-[#2ba4d8] flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700">
-                      10-12% Returns
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-[#2ba4d8] flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700">
-                      Tax Free/Taxable Options
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-[#2ba4d8] flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700 font-semibold">
-                      Partial Capital Protection
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-6 sm:mt-8">
-                  <span className="text-xs sm:text-sm text-gray-500">
-                    Risk Level:
-                  </span>
-                  <div className="mt-2 flex gap-1">
-                    <div className="h-2 w-full bg-[#2ba4d8] rounded"></div>
-                    <div className="h-2 w-full bg-[#2ba4d8] rounded"></div>
-                    <div className="h-2 w-full bg-gray-200 rounded"></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Risk Portfolio */}
-              <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-orange-400">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  High Growth
-                </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-transparent mb-4 sm:mb-6"></div>
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-orange-400 flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700">
-                      15-18% Returns
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-orange-400 flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700">
-                      Taxable Returns
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Check className="w-4 h-4 text-orange-400 flex-shrink-0" />
-                    <p className="text-sm sm:text-base text-gray-700 font-semibold">
-                      Market-Linked Returns
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-6 sm:mt-8">
-                  <span className="text-xs sm:text-sm text-gray-500">
-                    Risk Level:
-                  </span>
-                  <div className="mt-2 flex gap-1">
-                    <div className="h-2 w-full bg-orange-400 rounded"></div>
-                    <div className="h-2 w-full bg-orange-400 rounded"></div>
-                    <div className="h-2 w-full bg-orange-400 rounded"></div>
-                  </div>
-                </div>
+                <Link
+                  href="/investments"
+                  className="inline-flex bg-gradient-to-r from-[#2ba4d8] to-[#1e7fa8] text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 items-center gap-2"
+                >
+                  Explore Investment Options
+                  <ChevronRight className="w-5 h-5" />
+                </Link>
               </div>
             </div>
           </div>
@@ -608,7 +521,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
               {/* LIC */}
               <div className="group bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col items-center justify-center text-center hover:border-[#2ba4d8]">
                 <div className="relative w-full h-20 sm:h-24 md:h-32 mb-2 sm:mb-4 flex items-center justify-center">
@@ -663,25 +576,6 @@ export default function Home() {
                 </p>
                 <p className="text-xs text-gray-500 mt-1 hidden sm:block">
                   Mutual Funds
-                </p>
-              </div>
-
-              {/* HDFC Bank */}
-              <div className="group bg-white p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col items-center justify-center text-center hover:border-[#2ba4d8]">
-                <div className="relative w-full h-20 sm:h-24 md:h-32 mb-2 sm:mb-4 flex items-center justify-center">
-                  <Image
-                    src="/hdfc-logo.jpg"
-                    alt="HDFC Bank - Leading banking and financial services partner in India"
-                    width={180}
-                    height={120}
-                    className="object-contain group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <p className="text-xs sm:text-sm text-gray-600 font-medium mt-2">
-                  We understand your world
-                </p>
-                <p className="text-xs text-gray-500 mt-1 hidden sm:block">
-                  Banking Partner
                 </p>
               </div>
             </div>
@@ -763,14 +657,14 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Testimonial 3 - Mrs. Pratibha Swamy */}
+              {/* Testimonial 3 - Shreyas Bhasale */}
               <div className="group bg-gradient-to-br from-purple-50 to-white p-6 sm:p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
                 <div className="mb-4 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900">
-                    Mrs. Pratibha Swamy
+                    Shreyas Bhasale
                   </h3>
                   <p className="text-sm sm:text-base text-[#2ba4d8] font-medium">
-                    Valued Client
+                    Business Owner
                   </p>
                 </div>
                 <div className="relative">
@@ -837,7 +731,7 @@ export default function Home() {
               </div>
               <div className="text-center p-4 bg-gradient-to-br from-cyan-50 to-white rounded-xl border border-gray-100">
                 <div className="text-2xl sm:text-3xl font-bold text-[#2ba4d8] mb-1">
-                  26+
+                  28+
                 </div>
                 <div className="text-xs sm:text-sm text-gray-600">
                   Years Experience
@@ -930,7 +824,7 @@ export default function Home() {
               </div>
               <p className="text-xs sm:text-sm text-gray-400 mb-4">
                 Your trusted partner for insurance and financial planning with
-                26 years of excellence in securing families and creating wealth.
+                28 years of excellence in securing families and creating wealth.
               </p>
             </div>
 
@@ -956,12 +850,12 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#allocation"
+                  <Link
+                    href="/investments"
                     className="hover:text-white transition-colors"
                   >
-                    Portfolio
-                  </a>
+                    Investments
+                  </Link>
                 </li>
                 <li>
                   <a
@@ -989,8 +883,8 @@ export default function Home() {
               <ul className="space-y-2 text-xs sm:text-sm text-gray-400">
                 <li>Life Insurance</li>
                 <li>General Insurance</li>
-                <li>Mutual Funds</li>
-                <li>Financial Planning</li>
+                <li>LIC Agency</li>
+                <li>Investment Advisory</li>
               </ul>
             </div>
           </div>

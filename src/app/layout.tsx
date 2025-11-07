@@ -16,25 +16,43 @@ export const metadata: Metadata = {
     template: "%s | Becoz Life Matters",
   },
   description:
-    "Expert insurance and financial planning services in India with 26+ years of experience. Life insurance, health insurance, mutual funds, retirement planning, and wealth management solutions. Because Life Matters.",
+    "Expert insurance and financial planning services in India with 28+ years of experience. Specializing in life insurance, health insurance, mutual funds, retirement planning, and comprehensive wealth management solutions. Trusted advisor for families seeking financial security. Because Life Matters.",
   keywords: [
     "insurance advisor India",
-    "financial planning",
-    "life insurance",
-    "health insurance",
-    "mutual funds",
-    "retirement planning",
-    "wealth management",
-    "LIC agent",
-    "term insurance",
-    "mediclaim",
-    "SIP investment",
-    "financial advisor",
+    "financial planning services",
+    "life insurance policy",
+    "health insurance plans",
+    "mutual funds investment",
+    "retirement planning India",
+    "wealth management services",
+    "LIC agent India",
+    "term insurance plans",
+    "mediclaim policy",
+    "SIP investment India",
+    "financial advisor near me",
     "Archana Phaltankar",
     "becoz life matters",
-    "portfolio management",
-    "tax planning",
+    "portfolio management services",
+    "tax planning India",
     "child education planning",
+    "investment advisory services",
+    "insurance consultant India",
+    "best financial planner",
+    "money management services",
+    "asset allocation strategy",
+    "family financial planning",
+    "insurance agent Mumbai",
+    "financial planning expert",
+    "wealth creation strategies",
+    "goal-based investing",
+    "HDFC life insurance",
+    "ICICI Prudential",
+    "comprehensive insurance solutions",
+    "certified financial planner",
+    "risk management services",
+    "pension plans India",
+    "savings and investment plans",
+    "financial security planning",
   ],
   authors: [{ name: "Archana Phaltankar" }],
   creator: "Archana Phaltankar",
@@ -49,24 +67,15 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://becozlifematters.in",
     siteName: "Becoz Life Matters",
-    title: "Archana Phaltankar - Insurance & Financial Planning Expert",
+    title: "Archana Phaltankar - Insurance & Financial Planning Expert | 28+ Years Experience",
     description:
-      "Expert insurance and financial planning services with 26+ years of experience. Life insurance, health insurance, mutual funds, retirement planning. Because Life Matters.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Becoz Life Matters - Financial Planning Services",
-      },
-    ],
+      "Expert insurance and financial planning services with 28+ years of experience. Life insurance, health insurance, mutual funds, retirement planning, wealth management. Trusted financial advisor in India. Because Life Matters.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Archana Phaltankar - Insurance & Financial Planning Expert",
+    title: "Archana Phaltankar - Insurance & Financial Planning Expert | 28+ Years",
     description:
-      "Expert insurance and financial planning services with 26+ years of experience. Because Life Matters.",
-    images: ["/og-image.jpg"],
+      "Expert insurance and financial planning services with 28+ years of experience. Life insurance, health insurance, mutual funds, retirement planning. Because Life Matters.",
   },
   robots: {
     index: true,
@@ -80,7 +89,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
+    // Add your Google Search Console verification code here after setting up GSC
+    // google: "your-google-verification-code",
   },
   alternates: {
     canonical: "https://becozlifematters.in",
@@ -101,7 +111,7 @@ export default function RootLayout({
         "@id": "https://becozlifematters.in/#organization",
         name: "Becoz Life Matters",
         description:
-          "Professional insurance and financial planning services with expertise in life insurance, health insurance, mutual funds, and wealth management.",
+          "Professional insurance and financial planning services with 28+ years of expertise in life insurance, health insurance, mutual funds, retirement planning, and comprehensive wealth management. Trusted financial advisor serving families across India.",
         url: "https://becozlifematters.in",
         telephone: "+91-8308844841",
         email: "archana.phaltankar@becozlifematters.in",
@@ -115,7 +125,48 @@ export default function RootLayout({
           "@type": "AggregateRating",
           ratingValue: "4.9",
           reviewCount: "1000",
+          bestRating: "5",
+          worstRating: "1"
         },
+        priceRange: "₹₹",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Financial Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Life Insurance Planning",
+                description: "Comprehensive life insurance solutions including term plans, endowment policies, and retirement plans"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Health Insurance",
+                description: "Medical and health insurance coverage for individuals and families"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Mutual Funds Investment",
+                description: "Strategic mutual fund investments and portfolio management services"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Retirement Planning",
+                description: "Comprehensive retirement and pension planning solutions"
+              }
+            }
+          ]
+        }
       },
       {
         "@type": "Person",
@@ -123,13 +174,25 @@ export default function RootLayout({
         name: "Archana Phaltankar",
         jobTitle: "Financial Planner & Insurance Advisor",
         description:
-          "Experienced financial planner with 26+ years in insurance and wealth management.",
+          "Experienced financial planner and insurance advisor with 28+ years of expertise in insurance and comprehensive wealth management. Specialized in life insurance, health insurance, mutual funds, and retirement planning.",
         url: "https://becozlifematters.in",
         telephone: "+91-8308844841",
-        email: "archana.phaltankar@becozlifematters.in",
+        email: "archu.phaltankar@gmail.com",
         worksFor: {
           "@id": "https://becozlifematters.in/#organization",
         },
+        knowsAbout: [
+          "Life Insurance",
+          "Health Insurance",
+          "Financial Planning",
+          "Mutual Funds",
+          "Retirement Planning",
+          "Wealth Management",
+          "Investment Advisory",
+          "Risk Management",
+          "Tax Planning",
+          "Portfolio Management"
+        ],
       },
       {
         "@type": "WebSite",
