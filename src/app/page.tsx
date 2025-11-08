@@ -22,6 +22,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import { useState } from "react";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -805,6 +806,9 @@ export default function Home() {
                 </p>
               </div>
             </div>
+
+            {/* Contact Form */}
+            <ContactForm />
           </div>
         </section>
       </main>
