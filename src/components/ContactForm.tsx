@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { supabase } from "@/lib/supabase";
 import { Mail, User, Phone, MessageSquare, Send, CheckCircle } from "lucide-react";
 
 interface FormData {
@@ -39,17 +38,19 @@ export default function ContactForm() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const { error } = await supabase.from("contacts").insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          query: formData.query,
-          created_at: new Date().toISOString(),
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      ]);
+        body: JSON.stringify(formData),
+      });
 
-      if (error) throw error;
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit form");
+      }
 
       setSubmitStatus({
         type: "success",
