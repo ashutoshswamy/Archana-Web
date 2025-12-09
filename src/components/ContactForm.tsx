@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { Mail, User, Phone, MessageSquare, Send, CheckCircle } from "lucide-react";
+import { Mail, User, Phone, MessageSquare, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface FormData {
   name: string;
@@ -9,6 +10,22 @@ interface FormData {
   phone: string;
   query: string;
 }
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -69,18 +86,38 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-12">
-      <div className="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl">
-        <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-center">
+    <motion.div
+      className="max-w-2xl mx-auto mt-12"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={fadeInUp}
+    >
+      <motion.div
+        className="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl"
+        whileHover={{ scale: 1.01 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        <motion.h3
+          className="text-2xl sm:text-3xl font-bold mb-2 text-center"
+          variants={fadeInUp}
+        >
           Send us a Message
-        </h3>
-        <p className="text-white/90 mb-6 text-center text-sm sm:text-base">
+        </motion.h3>
+        <motion.p
+          className="text-white/90 mb-6 text-center text-sm sm:text-base"
+          variants={fadeInUp}
+        >
           Fill out the form below and we'll respond within 24 hours
-        </p>
+        </motion.p>
 
-        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+        <motion.form
+          onSubmit={handleSubmit}
+          className="space-y-4 sm:space-y-5"
+          variants={staggerContainer}
+        >
           {/* Name Input */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <label
               htmlFor="name"
               className="block text-sm font-medium mb-2 flex items-center gap-2"
@@ -88,7 +125,7 @@ export default function ContactForm() {
               <User className="w-4 h-4" />
               Full Name
             </label>
-            <input
+            <motion.input
               type="text"
               id="name"
               name="name"
@@ -97,11 +134,12 @@ export default function ContactForm() {
               required
               className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
               placeholder="Enter your full name"
+              whileFocus={{ scale: 1.01 }}
             />
-          </div>
+          </motion.div>
 
           {/* Email Input */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <label
               htmlFor="email"
               className="block text-sm font-medium mb-2 flex items-center gap-2"
@@ -109,7 +147,7 @@ export default function ContactForm() {
               <Mail className="w-4 h-4" />
               Email Address
             </label>
-            <input
+            <motion.input
               type="email"
               id="email"
               name="email"
@@ -118,11 +156,12 @@ export default function ContactForm() {
               required
               className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
               placeholder="your.email@example.com"
+              whileFocus={{ scale: 1.01 }}
             />
-          </div>
+          </motion.div>
 
           {/* Phone Input */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <label
               htmlFor="phone"
               className="block text-sm font-medium mb-2 flex items-center gap-2"
@@ -130,7 +169,7 @@ export default function ContactForm() {
               <Phone className="w-4 h-4" />
               Phone Number
             </label>
-            <input
+            <motion.input
               type="tel"
               id="phone"
               name="phone"
@@ -140,11 +179,12 @@ export default function ContactForm() {
               pattern="[0-9]{10}"
               className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all"
               placeholder="10-digit mobile number"
+              whileFocus={{ scale: 1.01 }}
             />
-          </div>
+          </motion.div>
 
           {/* Query Input */}
-          <div>
+          <motion.div variants={fadeInUp}>
             <label
               htmlFor="query"
               className="block text-sm font-medium mb-2 flex items-center gap-2"
@@ -152,7 +192,7 @@ export default function ContactForm() {
               <MessageSquare className="w-4 h-4" />
               Your Query
             </label>
-            <textarea
+            <motion.textarea
               id="query"
               name="query"
               value={formData.query}
@@ -161,18 +201,26 @@ export default function ContactForm() {
               rows={4}
               className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all resize-none"
               placeholder="Tell us about your financial planning needs..."
+              whileFocus={{ scale: 1.01 }}
             />
-          </div>
+          </motion.div>
 
           {/* Submit Button */}
-          <button
+          <motion.button
             type="submit"
             disabled={isSubmitting}
             className="w-full bg-white text-[#2ba4d8] font-bold py-3 sm:py-4 px-6 rounded-lg hover:bg-gray-100 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base sm:text-lg"
+            variants={fadeInUp}
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
           >
             {isSubmitting ? (
               <>
-                <div className="w-5 h-5 border-2 border-[#2ba4d8] border-t-transparent rounded-full animate-spin" />
+                <motion.div
+                  className="w-5 h-5 border-2 border-[#2ba4d8] border-t-transparent rounded-full"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                />
                 Sending...
               </>
             ) : (
@@ -181,25 +229,39 @@ export default function ContactForm() {
                 Send Message
               </>
             )}
-          </button>
+          </motion.button>
 
           {/* Status Message */}
-          {submitStatus.type && (
-            <div
-              className={`p-4 rounded-lg flex items-center gap-2 ${
-                submitStatus.type === "success"
-                  ? "bg-green-500/20 border border-green-400/30"
-                  : "bg-red-500/20 border border-red-400/30"
-              }`}
-            >
-              {submitStatus.type === "success" && (
-                <CheckCircle className="w-5 h-5" />
-              )}
-              <p className="text-sm">{submitStatus.message}</p>
-            </div>
-          )}
-        </form>
-      </div>
-    </div>
+          <AnimatePresence mode="wait">
+            {submitStatus.type && (
+              <motion.div
+                className={`p-4 rounded-lg flex items-center gap-2 ${
+                  submitStatus.type === "success"
+                    ? "bg-green-500/20 border border-green-400/30"
+                    : "bg-red-500/20 border border-red-400/30"
+                }`}
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.1, type: "spring", stiffness: 400 }}
+                >
+                  {submitStatus.type === "success" ? (
+                    <CheckCircle className="w-5 h-5 text-green-400" />
+                  ) : (
+                    <AlertCircle className="w-5 h-5 text-red-400" />
+                  )}
+                </motion.div>
+                <p className="text-sm">{submitStatus.message}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.form>
+      </motion.div>
+    </motion.div>
   );
 }
