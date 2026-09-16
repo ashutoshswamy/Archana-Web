@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  weight: ["300", "400", "500", "600", "700"],
+const dmSans = DM_Sans({
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-poppins",
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
@@ -17,6 +17,18 @@ export const metadata: Metadata = {
   },
   description:
     "Expert insurance and financial planning services in India with 28+ years of experience. Specializing in life insurance, health insurance, mutual funds, retirement planning, and comprehensive wealth management solutions. Trusted advisor for families seeking financial security. Because Life Matters.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+  },
+  manifest: "/site.webmanifest",
   keywords: [
     "insurance advisor India",
     "financial planning services",
@@ -70,12 +82,21 @@ export const metadata: Metadata = {
     title: "Archana Phaltankar - Insurance & Financial Planning Expert | 28+ Years Experience",
     description:
       "Expert insurance and financial planning services with 28+ years of experience. Life insurance, health insurance, mutual funds, retirement planning, wealth management. Trusted financial advisor in India. Because Life Matters.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Archana Phaltankar - Becoz Life Matters",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Archana Phaltankar - Insurance & Financial Planning Expert | 28+ Years",
     description:
       "Expert insurance and financial planning services with 28+ years of experience. Life insurance, health insurance, mutual funds, retirement planning. Because Life Matters.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -249,7 +270,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${poppins.variable} antialiased`}>{children}</body>
+      <body className={`${dmSans.variable} antialiased`}>{children}</body>
     </html>
   );
 }

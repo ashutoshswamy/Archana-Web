@@ -87,7 +87,7 @@ export default function ContactForm() {
 
   return (
     <motion.div
-      className="max-w-2xl mx-auto mt-12"
+      className="max-w-2xl mx-auto text-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
@@ -209,7 +209,7 @@ export default function ContactForm() {
           <motion.button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-white text-[#2ba4d8] font-bold py-3 sm:py-4 px-6 rounded-lg hover:bg-gray-100 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base sm:text-lg"
+            className="w-full bg-white text-[var(--brand)] font-bold py-3 sm:py-4 px-6 rounded-lg hover:bg-gray-100 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base sm:text-lg"
             variants={fadeInUp}
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
@@ -217,7 +217,7 @@ export default function ContactForm() {
             {isSubmitting ? (
               <>
                 <motion.div
-                  className="w-5 h-5 border-2 border-[#2ba4d8] border-t-transparent rounded-full"
+                  className="w-5 h-5 border-2 border-[var(--brand)] border-t-transparent rounded-full"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 />

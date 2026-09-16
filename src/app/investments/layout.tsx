@@ -39,12 +39,21 @@ export const metadata: Metadata = {
     siteName: "Becoz Life Matters",
     type: "website",
     locale: "en_IN",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Archana Phaltankar - Becoz Life Matters",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Investment & Mutual Funds Services | Archana Phaltankar",
     description:
       "Expert investment advisory and mutual fund services. Strategic asset allocation and portfolio management for wealth creation.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://becozlifematters.in/investments",

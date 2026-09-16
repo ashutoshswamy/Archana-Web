@@ -61,6 +61,7 @@ export default function Investments() {
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
                 <Link href="/" className="flex items-center gap-2 sm:gap-3">
+                  <Image src="/logo.png" alt="Becoz Life Matters logo" width={36} height={36} className="w-8 h-8 sm:w-9 sm:h-9" />
                   <div>
                     <div className="font-bold text-gray-800 text-base sm:text-lg">
                       Archana Phaltankar
@@ -79,26 +80,26 @@ export default function Investments() {
               >
                 {[
                   { name: "Home", href: "/" },
-                  { name: "Services", href: "/#services" },
-                  { name: "Investments", href: "/investments", active: true },
+                  { name: "Services", href: "/services" },
                   { name: "Partners", href: "/#partners" },
+                  { name: "Investments", href: "/investments", active: true },
                   { name: "Testimonials", href: "/#testimonials" },
-                  { name: "Contact", href: "/#contact" },
+                  { name: "Contact", href: "/contact" },
                 ].map((item) => (
                   <motion.div key={item.name} whileHover={{ scale: 1.05 }}>
                     <Link
                       href={item.href}
                       className={`${
                         item.active
-                          ? "text-[#2ba4d8]"
-                          : "hover:text-[#2ba4d8]"
+                          ? "text-[var(--brand)]"
+                          : "hover:text-[var(--brand)]"
                       } transition-colors relative group`}
                     >
                       {item.name}
                       <span
                         className={`absolute bottom-0 left-0 ${
                           item.active ? "w-full" : "w-0 group-hover:w-full"
-                        } h-0.5 bg-[#2ba4d8] transition-all`}
+                        } h-0.5 bg-[var(--brand)] transition-all`}
                       ></span>
                     </Link>
                   </motion.div>
@@ -108,7 +109,7 @@ export default function Investments() {
               {/* Desktop CTA Button */}
               <motion.a
                 href="tel:+918308844841"
-                className="hidden sm:flex bg-gradient-to-r from-[#2ba4d8] to-[#1e7fa8] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:shadow-xl transition-all duration-300 items-center gap-2"
+                className="hidden sm:flex bg-gradient-to-r from-[var(--brand)] to-[var(--brand-dark)] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold hover:shadow-xl transition-all duration-300 items-center gap-2"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
@@ -123,7 +124,7 @@ export default function Investments() {
               {/* Mobile Menu Button */}
               <motion.button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 text-gray-600 hover:text-[#2ba4d8] transition-colors"
+                className="lg:hidden p-2 text-gray-600 hover:text-[var(--brand)] transition-colors"
                 aria-label="Toggle menu"
                 whileTap={{ scale: 0.9 }}
               >
@@ -171,11 +172,11 @@ export default function Investments() {
                   >
                     {[
                       { name: "Home", href: "/" },
-                      { name: "Services", href: "/#services" },
-                      { name: "Investments", href: "/investments", active: true },
+                      { name: "Services", href: "/services" },
                       { name: "Partners", href: "/#partners" },
+                      { name: "Investments", href: "/investments", active: true },
                       { name: "Testimonials", href: "/#testimonials" },
-                      { name: "Contact", href: "/#contact" },
+                      { name: "Contact", href: "/contact" },
                     ].map((item) => (
                       <motion.div key={item.name} variants={fadeInUp}>
                         <Link
@@ -183,8 +184,8 @@ export default function Investments() {
                           onClick={() => setMobileMenuOpen(false)}
                           className={`${
                             item.active
-                              ? "text-[#2ba4d8]"
-                              : "text-gray-600 hover:text-[#2ba4d8]"
+                              ? "text-[var(--brand)]"
+                              : "text-gray-600 hover:text-[var(--brand)]"
                           } transition-colors font-medium flex items-center gap-2`}
                         >
                           <ChevronRight className="w-4 h-4" />
@@ -194,7 +195,7 @@ export default function Investments() {
                     ))}
                     <motion.a
                       href="tel:+918308844841"
-                      className="bg-gradient-to-r from-[#2ba4d8] to-[#1e7fa8] text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 sm:hidden"
+                      className="bg-gradient-to-r from-[var(--brand)] to-[var(--brand-dark)] text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center justify-center gap-2 sm:hidden"
                       variants={fadeInUp}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -211,77 +212,133 @@ export default function Investments() {
 
       {/* Hero Section */}
       <main>
-        <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50">
-          {/* Animated Background Elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              className="absolute -top-40 -right-40 w-80 h-80 bg-[#2ba4d8]/10 rounded-full blur-3xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-            <motion.div
-              className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-400/10 rounded-full blur-3xl"
-              animate={{
-                scale: [1.2, 1, 1.2],
-                opacity: [0.5, 0.3, 0.5],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          </div>
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-            <motion.div
-              className="max-w-4xl mx-auto text-center"
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-            >
+        <section className="relative overflow-hidden bg-[var(--paper)] border-t-2 border-[var(--brass)]">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-28">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-16 items-start">
               <motion.div
-                className="inline-flex items-center gap-2 bg-blue-50 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-[#2ba4d8] border border-blue-100 mb-6"
-                variants={fadeInUp}
+                className="space-y-6 sm:space-y-8"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2ba4d8] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2ba4d8]"></span>
-                </span>
-                Investment Solutions
+                <motion.div
+                  className="eyebrow text-xs sm:text-sm text-[var(--brass)] pb-2 border-b-2 border-[var(--brass)] inline-block"
+                  variants={fadeInUp}
+                >
+                  Investment Advisory
+                </motion.div>
+
+                <motion.h1
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--ink)] leading-[1.05] tracking-tight"
+                  variants={fadeInUp}
+                >
+                  Build Your
+                  <span className="block font-light italic text-[var(--brand)]">
+                    Financial Future
+                  </span>
+                </motion.h1>
+
+                <motion.p
+                  className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl"
+                  variants={fadeInUp}
+                >
+                  Strategic investment planning tailored to your goals. Expert
+                  guidance for wealth creation through mutual funds and
+                  comprehensive financial advisory services.
+                </motion.p>
+
+                <motion.div
+                  className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
+                  variants={fadeInUp}
+                >
+                  <motion.a
+                    href="tel:+918308844841"
+                    className="bg-[var(--brand)] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold hover:bg-[var(--brand-dark)] transition-colors duration-300 text-center"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    Talk to an Advisor
+                  </motion.a>
+                  <Link
+                    href="/contact"
+                    className="bg-transparent text-[var(--ink)] px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold border-2 border-[var(--line)] hover:border-[var(--brand)] hover:text-[var(--brand)] transition-all duration-300 text-center inline-block"
+                  >
+                    Schedule Consultation
+                  </Link>
+                </motion.div>
               </motion.div>
 
-              <motion.h1
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6"
-                variants={fadeInUp}
+              {/* Allocation graphic */}
+              <motion.div
+                className="relative lg:mt-2 flex flex-col items-center"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
               >
-                Build Your
-                <motion.span
-                  className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2ba4d8] to-[#1e7fa8]"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                >
-                  Financial Future
-                </motion.span>
-              </motion.h1>
+                <div className="absolute w-64 h-64 bg-[var(--brand)]/10 rounded-full blur-3xl -z-10" />
 
-              <motion.p
-                className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8"
-                variants={fadeInUp}
-              >
-                Strategic investment planning tailored to your goals. Expert guidance
-                for wealth creation through mutual funds and comprehensive financial
-                advisory services.
-              </motion.p>
-            </motion.div>
+                <svg viewBox="0 0 300 300" className="w-full max-w-[260px]" aria-hidden="true">
+                  {[
+                    { pct: 30, offset: 0, color: "var(--risk-safe)" },
+                    { pct: 45, offset: 30, color: "var(--brand)" },
+                    { pct: 25, offset: 75, color: "var(--risk-high)" },
+                  ].map((seg, i) => (
+                    <motion.circle
+                      key={seg.color}
+                      cx="150"
+                      cy="150"
+                      r="90"
+                      fill="none"
+                      stroke={seg.color}
+                      strokeWidth="34"
+                      pathLength={100}
+                      strokeDasharray={`${seg.pct} ${100 - seg.pct}`}
+                      strokeDashoffset={-seg.offset}
+                      transform="rotate(-90 150 150)"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      style={{ transformOrigin: "150px 150px" }}
+                      transition={{ delay: 0.6 + i * 0.15, duration: 0.5, ease: "easeOut" }}
+                    />
+                  ))}
+                  <circle cx="150" cy="150" r="62" fill="var(--paper)" />
+                  <foreignObject x="90" y="120" width="120" height="60">
+                    <div className="flex flex-col items-center justify-center h-full text-center">
+                      <span className="text-xs text-gray-500 leading-tight">
+                        Sample
+                        <br />
+                        Portfolio Mix
+                      </span>
+                    </div>
+                  </foreignObject>
+                </svg>
+
+                <div className="w-full max-w-[260px] mt-6 space-y-2">
+                  {[
+                    { label: "Safe", pct: "30%", color: "var(--risk-safe)" },
+                    { label: "Medium Risk", pct: "45%", color: "var(--brand)" },
+                    { label: "High Growth", pct: "25%", color: "var(--risk-high)" },
+                  ].map((row, i) => (
+                    <motion.div
+                      key={row.label}
+                      className="flex items-center justify-between text-sm"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.1 + i * 0.1, duration: 0.4 }}
+                    >
+                      <span className="flex items-center gap-2 text-gray-600">
+                        <span
+                          className="w-2 h-2 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: row.color }}
+                        />
+                        {row.label}
+                      </span>
+                      <span className="font-semibold text-[var(--ink)]">{row.pct}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
@@ -289,26 +346,26 @@ export default function Investments() {
         <section className="py-16 sm:py-20 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <motion.div
-              className="text-center mb-12 sm:mb-16"
+              className="mb-12 sm:mb-16"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
             >
               <motion.div
-                className="inline-block bg-blue-50 px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold text-[#2ba4d8] mb-4"
+                className="inline-block text-xs sm:text-sm font-semibold text-[var(--brass)] mb-4 uppercase tracking-[0.18em] pb-2 border-b-2 border-[var(--brass)]"
                 variants={fadeInUp}
               >
                 Our Investment Services
               </motion.div>
               <motion.h2
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--ink)] mb-4 tracking-tight max-w-2xl"
                 variants={fadeInUp}
               >
                 Comprehensive Investment Solutions
               </motion.h2>
               <motion.p
-                className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4"
+                className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl"
                 variants={fadeInUp}
               >
                 Expert guidance for wealth creation and financial planning
@@ -324,12 +381,12 @@ export default function Investments() {
             >
               {/* Mutual Funds */}
               <motion.div
-                className="group bg-gradient-to-br from-purple-50 to-white p-8 sm:p-10 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                className="group bg-white border-[var(--line)] p-8 sm:p-10 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-[var(--line)]"
                 variants={scaleIn}
                 whileHover={{ y: -10 }}
               >
                 <motion.div
-                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6"
+                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[var(--brand)] to-[var(--brand-dark)] rounded-xl flex items-center justify-center mb-6"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
@@ -351,7 +408,7 @@ export default function Investments() {
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <Check className="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-[var(--brand)] mt-0.5 flex-shrink-0" />
                       <span>{item}</span>
                     </motion.li>
                   ))}
@@ -360,12 +417,12 @@ export default function Investments() {
 
               {/* Financial Advisory */}
               <motion.div
-                className="group bg-gradient-to-br from-rose-50 to-white p-8 sm:p-10 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                className="group bg-white border-[var(--line)] p-8 sm:p-10 rounded-2xl hover:shadow-2xl transition-all duration-300 border border-[var(--line)]"
                 variants={scaleIn}
                 whileHover={{ y: -10 }}
               >
                 <motion.div
-                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center mb-6"
+                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-[var(--brass)] to-[#96692a] rounded-xl flex items-center justify-center mb-6"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
@@ -387,7 +444,7 @@ export default function Investments() {
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <Check className="w-5 h-5 text-rose-500 mt-0.5 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-[var(--brass)] mt-0.5 flex-shrink-0" />
                       <span>{item}</span>
                     </motion.li>
                   ))}
@@ -398,29 +455,29 @@ export default function Investments() {
         </section>
 
         {/* Asset Allocation Section */}
-        <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section className="py-16 sm:py-20 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <motion.div
-              className="text-center mb-12 sm:mb-16"
+              className="mb-12 sm:mb-16"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
             >
               <motion.div
-                className="inline-block bg-blue-50 px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold text-[#2ba4d8] mb-4"
+                className="inline-block text-xs sm:text-sm font-semibold text-[var(--brass)] mb-4 uppercase tracking-[0.18em] pb-2 border-b-2 border-[var(--brass)]"
                 variants={fadeInUp}
               >
                 Portfolio Management
               </motion.div>
               <motion.h2
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--ink)] mb-4 tracking-tight max-w-2xl"
                 variants={fadeInUp}
               >
                 Smart Asset Allocation
               </motion.h2>
               <motion.p
-                className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4"
+                className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl"
                 variants={fadeInUp}
               >
                 Choose the investment strategy that aligns with your risk
@@ -437,12 +494,12 @@ export default function Investments() {
             >
               {/* Safe Portfolio */}
               <motion.div
-                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-green-400"
+                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[var(--line)] hover:border-[var(--risk-safe)]"
                 variants={scaleIn}
                 whileHover={{ y: -10 }}
               >
                 <motion.div
-                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mb-4 sm:mb-6"
+                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[var(--risk-safe)] to-[#2d5a44] rounded-2xl flex items-center justify-center mb-4 sm:mb-6"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
@@ -451,7 +508,7 @@ export default function Investments() {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   Safe Portfolio
                 </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-green-400 to-transparent mb-4 sm:mb-6"></div>
+                <div className="w-16 h-1 bg-gradient-to-r from-[var(--risk-safe)] to-transparent mb-4 sm:mb-6"></div>
                 <div className="space-y-3 sm:space-y-4">
                   {[
                     { text: "5-6% Guaranteed Returns", bold: false },
@@ -466,7 +523,7 @@ export default function Investments() {
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-[var(--risk-safe)] flex-shrink-0" />
                       <p className={`text-sm sm:text-base text-gray-700 ${item.bold ? "font-semibold" : ""}`}>
                         {item.text}
                       </p>
@@ -479,7 +536,7 @@ export default function Investments() {
                   </span>
                   <div className="mt-2 flex gap-1">
                     <motion.div
-                      className="h-2 w-full bg-green-400 rounded"
+                      className="h-2 w-full bg-[var(--risk-safe)] rounded"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
@@ -493,12 +550,12 @@ export default function Investments() {
 
               {/* Medium Risk Portfolio */}
               <motion.div
-                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#2ba4d8]"
+                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[var(--line)] hover:border-[var(--brand)]"
                 variants={scaleIn}
                 whileHover={{ y: -10 }}
               >
                 <motion.div
-                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[#2ba4d8] to-[#1e7fa8] rounded-2xl flex items-center justify-center mb-4 sm:mb-6"
+                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[var(--brand)] to-[var(--brand-dark)] rounded-2xl flex items-center justify-center mb-4 sm:mb-6"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
@@ -507,7 +564,7 @@ export default function Investments() {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   Medium Risk
                 </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-[#2ba4d8] to-transparent mb-4 sm:mb-6"></div>
+                <div className="w-16 h-1 bg-gradient-to-r from-[var(--brand)] to-transparent mb-4 sm:mb-6"></div>
                 <div className="space-y-3 sm:space-y-4">
                   {[
                     { text: "10-12% Returns", bold: false },
@@ -522,7 +579,7 @@ export default function Investments() {
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <Check className="w-4 h-4 text-[#2ba4d8] flex-shrink-0" />
+                      <Check className="w-4 h-4 text-[var(--brand)] flex-shrink-0" />
                       <p className={`text-sm sm:text-base text-gray-700 ${item.bold ? "font-semibold" : ""}`}>
                         {item.text}
                       </p>
@@ -535,14 +592,14 @@ export default function Investments() {
                   </span>
                   <div className="mt-2 flex gap-1">
                     <motion.div
-                      className="h-2 w-full bg-[#2ba4d8] rounded"
+                      className="h-2 w-full bg-[var(--brand)] rounded"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.2 }}
                     />
                     <motion.div
-                      className="h-2 w-full bg-[#2ba4d8] rounded"
+                      className="h-2 w-full bg-[var(--brand)] rounded"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
@@ -555,12 +612,12 @@ export default function Investments() {
 
               {/* High Growth Portfolio */}
               <motion.div
-                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-orange-400"
+                className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-[var(--line)] hover:border-[var(--risk-high)]"
                 variants={scaleIn}
                 whileHover={{ y: -10 }}
               >
                 <motion.div
-                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mb-4 sm:mb-6"
+                  className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-[var(--risk-high)] to-[#8f3f2a] rounded-2xl flex items-center justify-center mb-4 sm:mb-6"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
@@ -569,7 +626,7 @@ export default function Investments() {
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   High Growth
                 </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-transparent mb-4 sm:mb-6"></div>
+                <div className="w-16 h-1 bg-gradient-to-r from-[var(--risk-high)] to-transparent mb-4 sm:mb-6"></div>
                 <div className="space-y-3 sm:space-y-4">
                   {[
                     { text: "15-18% Returns", bold: false },
@@ -584,7 +641,7 @@ export default function Investments() {
                       transition={{ delay: i * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <Check className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-[var(--risk-high)] flex-shrink-0" />
                       <p className={`text-sm sm:text-base text-gray-700 ${item.bold ? "font-semibold" : ""}`}>
                         {item.text}
                       </p>
@@ -597,21 +654,21 @@ export default function Investments() {
                   </span>
                   <div className="mt-2 flex gap-1">
                     <motion.div
-                      className="h-2 w-full bg-orange-400 rounded"
+                      className="h-2 w-full bg-[var(--risk-high)] rounded"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.2 }}
                     />
                     <motion.div
-                      className="h-2 w-full bg-orange-400 rounded"
+                      className="h-2 w-full bg-[var(--risk-high)] rounded"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 }}
                     />
                     <motion.div
-                      className="h-2 w-full bg-orange-400 rounded"
+                      className="h-2 w-full bg-[var(--risk-high)] rounded"
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
@@ -625,49 +682,51 @@ export default function Investments() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[#2ba4d8] via-[#2ba4d8] to-[#1e7fa8] text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-white/10"></div>
+        <section className="py-16 sm:py-20 md:py-24 bg-[var(--ink)] text-white relative overflow-hidden">
           <motion.div
-            className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center"
+            className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
-              variants={fadeInUp}
-            >
-              Ready to Start Your Investment Journey?
-            </motion.h2>
-            <motion.p
-              className="text-base sm:text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto"
-              variants={fadeInUp}
-            >
-              Get personalized investment advice and portfolio management solutions
-              tailored to your financial goals.
-            </motion.p>
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              variants={fadeInUp}
-            >
-              <motion.a
-                href="tel:+918308844841"
-                className="bg-white text-[#2ba4d8] px-8 py-4 rounded-full font-semibold hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
+            <div className="max-w-2xl">
+              <motion.div
+                className="eyebrow text-xs sm:text-sm text-[var(--brass-light)] pb-2 border-b-2 border-[var(--brass)] inline-block mb-4"
+                variants={fadeInUp}
               >
-                <Phone className="w-5 h-5" />
-                Call Now
-              </motion.a>
-              <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/#contact"
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[#2ba4d8] transition-all duration-300 inline-block"
-                >
-                  Schedule Consultation
-                </Link>
+                Get Started
               </motion.div>
+              <motion.h2
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight"
+                variants={fadeInUp}
+              >
+                Ready to Start Your Investment Journey?
+              </motion.h2>
+              <motion.p
+                className="text-base sm:text-lg md:text-xl opacity-80"
+                variants={fadeInUp}
+              >
+                Get personalized investment advice and portfolio management
+                solutions tailored to your financial goals.
+              </motion.p>
+            </div>
+
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="tel:+918308844841"
+                className="inline-flex items-center justify-center gap-2 bg-white text-[var(--ink)] px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold hover:bg-white/90 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                Call Now
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-md font-semibold hover:border-white transition-colors"
+              >
+                Schedule Consultation
+                <ChevronRight className="w-4 h-4" />
+              </Link>
             </motion.div>
           </motion.div>
         </section>
@@ -675,7 +734,7 @@ export default function Investments() {
 
       {/* Footer */}
       <motion.footer
-        className="bg-gray-900 text-white py-8 sm:py-10 md:py-12"
+        className="bg-[var(--ink)] text-white py-8 sm:py-10 md:py-12"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -711,10 +770,10 @@ export default function Investments() {
               <ul className="space-y-2 text-xs sm:text-sm text-gray-400">
                 {[
                   { name: "Home", href: "/" },
-                  { name: "Services", href: "/#services" },
+                  { name: "Services", href: "/services" },
                   { name: "Investments", href: "/investments" },
                   { name: "Testimonials", href: "/#testimonials" },
-                  { name: "Contact", href: "/#contact" },
+                  { name: "Contact", href: "/contact" },
                 ].map((item) => (
                   <motion.li
                     key={item.name}
@@ -757,7 +816,7 @@ export default function Investments() {
       {/* Floating Action Button */}
       <motion.a
         href="tel:+918308844841"
-        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-gradient-to-r from-[#2ba4d8] to-[#1e7fa8] text-white px-4 py-3 sm:px-6 sm:py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 z-50 flex items-center gap-2 sm:gap-3 font-semibold group"
+        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-gradient-to-r from-[var(--brand)] to-[var(--brand-dark)] text-white px-4 py-3 sm:px-6 sm:py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 z-50 flex items-center gap-2 sm:gap-3 font-semibold group"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 200 }}
