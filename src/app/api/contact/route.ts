@@ -4,18 +4,50 @@ import { supabase } from "@/lib/supabase";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, phone, query } = body;
 
     // Validate the input
-    if (!name || !email || !phone || !query) {
+    if (
+      typeof name !== "string" ||
+      typeof email !== "string" ||
+      typeof phone !== "string" ||
+      typeof query !== "string" ||
+      !name.trim() ||
+      !email.trim() ||
+      !phone.trim() ||
+      !query.trim()
+    ) {
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 }
       );
     }
+
+    if (!EMAIL_RE.test(email) || name.length > 200 || phone.length > 20 || query.length > 5000) {
+      return NextResponse.json(
+        { error: "Invalid input" },
+        { status: 400 }
+      );
+    }
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone);
+    const safeQuery = escapeHtml(query);
 
     // Save to Supabase
     const { error: dbError } = await supabase.from("contacts").insert([
@@ -37,7 +69,7 @@ export async function POST(request: NextRequest) {
     const { data, error: emailError } = await resend.emails.send({
       from: "Becoz Life Matters | Archana Phaltankar <contact@becozlifematters.in>", // Replace with your verified domain
       to: "archu.phaltankar@gmail.com", // Replace with your Gmail
-      subject: `New Contact Form Submission from ${name}`,
+      subject: `New Contact Form Submission from ${name.replace(/[\r\n]/g, " ")}`,
       html: `
 <!doctype html>
 <html lang="en">
@@ -57,7 +89,7 @@ export async function POST(request: NextRequest) {
   </head>
   <body style="margin:0;padding:0;background-color:#f3f6f8;font-family:Arial, Helvetica, sans-serif;-webkit-font-smoothing:antialiased;">
     <!-- Preheader (visible in inbox preview) -->
-    <span class="preheader">New contact form submission from ${name} — ${email}</span>
+    <span class="preheader">New contact form submission from ${safeName} — ${safeEmail}</span>
 
     <!-- Outer wrapper table (centers email) -->
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f3f6f8;padding:24px 12px;">
@@ -97,7 +129,7 @@ export async function POST(request: NextRequest) {
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:10px;">
                         <tr>
                           <td style="width:110px;font-weight:600;color:#334e57;padding:6px 8px 6px 0;">Name</td>
-                          <td style="padding:6px 8px;color:#0e2b33;">${name}</td>
+                          <td style="padding:6px 8px;color:#0e2b33;">${safeName}</td>
                         </tr>
                       </table>
 
@@ -106,7 +138,7 @@ export async function POST(request: NextRequest) {
                         <tr>
                           <td style="width:110px;font-weight:600;color:#334e57;padding:6px 8px 6px 0;">Email</td>
                           <td style="padding:6px 8px;">
-                            <a href="mailto:${email}" style="color:#0b6fa4;text-decoration:none;">${email}</a>
+                            <a href="mailto:${safeEmail}" style="color:#0b6fa4;text-decoration:none;">${safeEmail}</a>
                           </td>
                         </tr>
                       </table>
@@ -116,7 +148,7 @@ export async function POST(request: NextRequest) {
                         <tr>
                           <td style="width:110px;font-weight:600;color:#334e57;padding:6px 8px 6px 0;">Phone</td>
                           <td style="padding:6px 8px;">
-                            ${phone ? `<a href="tel:${phone}" style="color:#0b6fa4;text-decoration:none;">${phone}</a>` : `<span style="color:#8a9599;">Not provided</span>`}
+                            ${safePhone ? `<a href="tel:${safePhone}" style="color:#0b6fa4;text-decoration:none;">${safePhone}</a>` : `<span style="color:#8a9599;">Not provided</span>`}
                           </td>
                         </tr>
                       </table>
@@ -125,7 +157,7 @@ export async function POST(request: NextRequest) {
                       <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin-top:6px;">
                         <tr>
                           <td style="vertical-align:top;font-weight:600;color:#334e57;padding:6px 8px 6px 0;width:110px;">Message</td>
-                          <td style="padding:6px 8px;color:#0e2b33;line-height:1.5;white-space:pre-wrap;">${query}</td>
+                          <td style="padding:6px 8px;color:#0e2b33;line-height:1.5;white-space:pre-wrap;">${safeQuery}</td>
                         </tr>
                       </table>
                     </td>
@@ -187,7 +219,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         error: "Failed to process contact form",
-        details: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 500 }
     );

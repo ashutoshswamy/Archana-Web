@@ -1,26 +1,26 @@
 # Becoz Life Matters - Insurance & Financial Planning Website
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC)](https://tailwindcss.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC)](https://tailwindcss.com/)
 [![SEO Optimized](https://img.shields.io/badge/SEO-Optimized-green)](https://developers.google.com/search)
 
-Professional website for Archana Phaltankar's insurance and financial planning services with 28+ years of experience. Featuring comprehensive SEO optimization, responsive design, and modern web technologies.
+Professional website for Archana Phaltankar's insurance and financial planning services with 28+ years of experience. Featuring comprehensive SEO optimization, a responsive editorial design, and a working contact form backed by Supabase + Resend.
 
 ## 🌟 Features
 
-- **SEO Optimized**: Comprehensive meta tags, Open Graph, Twitter Cards, and JSON-LD structured data
+- **SEO Optimized**: Per-page meta tags, canonical URLs, Open Graph, Twitter Cards, and JSON-LD structured data
 - **Mobile-First Design**: Fully responsive across all devices
-- **Performance Optimized**: Next.js 15 with image optimization, lazy loading, and compression
-- **Accessibility**: WCAG compliant with semantic HTML and ARIA labels
-- **PWA Ready**: Progressive Web App capabilities with manifest and service worker support
-- **Modern UI/UX**: Clean, professional design with smooth animations and transitions
+- **Performance Optimized**: Next.js 16 with image optimization, lazy loading, and compression
+- **Working Contact Form**: Submissions are stored in Supabase and emailed via Resend
+- **Modern UI/UX**: DM Sans typography, forest/brass brand palette, Framer Motion animations
+- **PWA-ready icons**: Full favicon set + web manifest
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
@@ -34,25 +34,28 @@ cd archana-web
 2. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
-3. Set up environment variables:
-```bash
-cp env.example .env.local
-# Edit .env.local with your actual values
+3. Set up environment variables — create `.env.local` in the project root:
+```env
+NEXT_PUBLIC_SITE_URL=https://becozlifematters.in
+NEXT_PUBLIC_SITE_NAME=Becoz Life Matters
+NEXT_PUBLIC_PHONE=+918308844841
+NEXT_PUBLIC_EMAIL=archu.phaltankar@gmail.com
+
+# Supabase (stores contact form submissions)
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+
+# Resend (sends the contact form notification email)
+RESEND_API_KEY=your-resend-api-key
 ```
+
+> The Supabase `contacts` table must have Row Level Security enabled with policies scoped to what the anon key is allowed to do (insert-only from the API route). Never rely on the key being secret — it is a `NEXT_PUBLIC_` value.
 
 4. Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
@@ -63,160 +66,92 @@ pnpm dev
 archana-web/
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx          # Root layout with metadata & structured data
-│   │   ├── page.tsx            # Home page
-│   │   ├── sitemap.ts          # XML sitemap generation
-│   │   ├── globals.css         # Global styles
-│   │   └── investments/
-│   │       ├── layout.tsx      # Investments page layout
-│   │       └── page.tsx        # Investments page
-│   └── components/
-│       └── SEO.tsx             # SEO components (FAQ, Breadcrumb schemas)
+│   │   ├── layout.tsx           # Root layout: metadata, icons, JSON-LD, DM Sans font
+│   │   ├── page.tsx             # Home page
+│   │   ├── globals.css          # Global styles, brand color tokens
+│   │   ├── sitemap.ts           # XML sitemap generation
+│   │   ├── investments/         # /investments — investment advisory + risk-tier breakdown
+│   │   ├── services/            # /services — service summaries + partner logos
+│   │   ├── contact/             # /contact — contact form + embedded Google Map
+│   │   └── api/contact/         # POST route: validates, stores in Supabase, emails via Resend
+│   ├── components/
+│   │   └── ContactForm.tsx      # Shared contact form (used on /contact)
+│   └── lib/
+│       └── supabase.ts          # Supabase client (server-side use only)
 ├── public/
-│   ├── robots.txt              # Search engine directives
-│   ├── site.webmanifest        # PWA manifest
-│   └── [images]                # Logos, icons, and images
-├── next.config.ts              # Next.js configuration
-├── tailwind.config.ts          # Tailwind CSS configuration
-├── SEO-OPTIMIZATION.md         # SEO documentation
+│   ├── robots.txt               # Search engine directives
+│   ├── site.webmanifest         # PWA manifest
+│   ├── favicon.ico, favicon-16x16.png, favicon-32x32.png
+│   ├── apple-touch-icon.png, android-chrome-192x192.png, android-chrome-512x512.png
+│   ├── logo.png                 # Nav mark
+│   ├── og-image.png             # Open Graph share image (1200x630)
+│   └── [partner logos, portrait]
+├── next.config.ts               # Image optimization + security headers
 └── package.json
 ```
 
 ## 🎨 Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS v4
+- **Animation**: Framer Motion
 - **Icons**: Lucide React
-- **Fonts**: Poppins (Google Fonts)
+- **Fonts**: DM Sans (Google Fonts)
+- **Backend**: Supabase (contact submissions), Resend (transactional email)
 - **Image Optimization**: Next.js Image component
 - **Deployment**: Vercel (recommended)
 
 ## 🔍 SEO Features
 
-### Implemented Optimizations
+✅ **Meta Tags** — dynamic per-page titles, descriptions, and canonical URLs
 
-✅ **Meta Tags**
-- Dynamic page titles with keywords
-- Compelling meta descriptions (150-160 chars)
-- Comprehensive keyword lists
+✅ **Structured Data (Schema.org)** — FinancialService, Person, WebSite, Service, and ContactPage JSON-LD
 
-✅ **Structured Data (Schema.org)**
-- FinancialService organization
-- Person (Archana Phaltankar)
-- Service offerings
-- AggregateRating (4.9/5, 1000+ reviews)
-- LocalBusiness information
+✅ **Open Graph & Twitter Cards** — shared `/og-image.png` (1200×630) wired into every page's metadata
 
-✅ **Open Graph & Twitter Cards**
-- Optimized social sharing
-- Custom OG images (1200x630px)
-- Platform-specific metadata
+✅ **Technical SEO** — auto-generated XML sitemap (`/sitemap.xml`), `robots.txt`, mobile-first layout
 
-✅ **Technical SEO**
-- XML sitemap (auto-generated)
-- Robots.txt configuration
-- Canonical URLs
-- Mobile-first indexing
-- Core Web Vitals optimization
-
-✅ **Security Headers**
-- HSTS, X-Frame-Options
-- Content Security Policy
-- XSS Protection
-
-See [SEO-OPTIMIZATION.md](./SEO-OPTIMIZATION.md) for complete documentation.
+✅ **Security Headers** — HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy (see `next.config.ts`)
 
 ## 📱 Pages
 
-### Home Page (/)
-- Hero section with call-to-actions
-- About section with owner profile
-- Services overview (Life Insurance, General Insurance, LIC Agency)
-- Partner logos (LIC, ICICI Lombard, Prudent)
-- Client testimonials with ratings
-- Contact information
+### Home (`/`)
+Hero, About, Services overview, Partner logos, Testimonials, and a contact CTA band.
 
-### Investments Page (/investments)
-- Investment services overview
-- Mutual funds information
-- Financial advisory details
-- Asset allocation strategies
-- SIP planning guidance
+### Services (`/services`)
+Brief summaries of Life Insurance, General Insurance, and LIC Agency, plus the Service Partners grid.
 
-## 🎯 Key Metrics
+### Investments (`/investments`)
+Mutual funds, financial advisory, and a Safe / Medium / High risk-tier breakdown.
 
-- **Lighthouse Score**: 90+
-- **Page Load Time**: < 2s
-- **Mobile Friendly**: Yes
-- **Core Web Vitals**: Optimized
-- **SEO Score**: 95+
+### Contact (`/contact`)
+Contact form (stores to Supabase, emails via Resend), phone/WhatsApp/email/address, and an embedded Google Map of the Pune office.
 
 ## 🚢 Deployment
 
 ### Vercel (Recommended)
 
 1. Push your code to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Configure environment variables
+2. Import the project in [Vercel](https://vercel.com)
+3. Add the environment variables listed above
 4. Deploy
 
-The site will be automatically deployed with every push to the main branch.
+The site redeploys automatically on every push to the main branch.
 
-### Other Platforms
+## 🔒 Security Notes
 
-The app can be deployed on any platform supporting Next.js:
-- Netlify
-- AWS Amplify
-- Railway
-- DigitalOcean App Platform
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env.local` file (use `env.example` as template):
-
-```env
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-NEXT_PUBLIC_GOOGLE_VERIFICATION=your-verification-code
-NEXT_PUBLIC_SITE_URL=https://becozlifematters.in
-```
-
-### Google Services Setup
-
-1. **Google Search Console**
-   - Verify ownership
-   - Submit sitemap: `https://becozlifematters.in/sitemap.xml`
-   - Monitor search performance
-
-2. **Google Analytics 4**
-   - Create GA4 property
-   - Add measurement ID to `.env.local`
-   - Configure goals and conversions
-
-3. **Google Business Profile**
-   - Create/claim business listing
-   - Add business information
-   - Encourage client reviews
-
-## 📊 Analytics & Monitoring
-
-### Recommended Tools
-- Google Analytics 4
-- Google Search Console
-- Vercel Analytics
-- Lighthouse CI
-- PageSpeed Insights
+- Contact form input is HTML-escaped before being embedded in the notification email (prevents HTML/script injection into the email body).
+- Server errors return a generic message to the client; details are logged server-side only.
+- `.env*` files are gitignored — no secrets are committed.
+- No known vulnerable dependencies flagged beyond the standard `npm audit` advisories for the pinned framework versions; run `npm audit` periodically and `npm update` to stay current.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
-
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+3. Commit your changes
+4. Push to the branch
 5. Open a Pull Request
 
 ## 📄 License
@@ -226,20 +161,12 @@ This project is proprietary and confidential.
 ## 👤 Contact
 
 **Archana Phaltankar**
-- Phone: +91-8308844841
-- Email: archana.phaltankar@becozlifematters.in
+- Phone / WhatsApp: +91-8308844841
+- Email: archu.phaltankar@gmail.com
 - Website: [becozlifematters.in](https://becozlifematters.in)
-
-## 🙏 Acknowledgments
-
-- Next.js team for the amazing framework
-- Vercel for hosting platform
-- Lucide for beautiful icons
-- All clients who trusted our services
 
 ---
 
-**Built with ❤️ for Becoz Life Matters**
+**Built for Becoz Life Matters**
 
-*Last Updated: November 2025*
-
+*Last Updated: September 2026*
